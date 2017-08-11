@@ -1,23 +1,29 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn import linear_model
-from sklearn import ensemble
+#this file contains cleaning and model selection and parameter tuning feature selection is in another file
+
+import numpy as np #for numerical computations and vector usage
+import pandas as pd #for loading the data and using dataframes
+import matplotlib.pyplot as plt #for plotting 
+from sklearn import linear_model #for logisticregression
+from sklearn import ensemble #for randomforests,baggingtrees,gbm
 from dataclean import dclean
 from fscale import fscale
 from sklearn import model_selection
-from sklearn import svm,tree,ensemble
-from plot_learning_curve import plot_learning_curve
-from sklearn import metrics
-from sklearn.preprocessing import Imputer,scale
-from sklearn.model_selection import train_test_split
-import warnings
-from time import time
+from sklearn import svm,tree #for SVC and decision trees
+from plot_learning_curve import plot_learning_curve #this has the code to plot learning curves
+from sklearn import metrics #for crossvalidation
+from sklearn.preprocessing import Imputer,scale #for datacleaning and preprocessing
+from sklearn.model_selection import train_test_split #for splitting data(stratified K fold with k=10 is also fine)
+import warnings #to prevent warnings
+from time import time #to check training time and testing time
 
 if __name__=='__main__':
     warnings.filterwarnings("ignore")
+    
+    '''Loading The Training And Test data'''
     data=pd.read_csv('train.csv')
     test=pd.read_csv('test.csv')
+    
+    
     data['Embarked']=data['Embarked'].fillna('S')
     trainX=data[['Pclass','Age','SibSp','Parch','Fare']]
     testX=test[['Pclass','Age','SibSp','Parch','Fare']]
