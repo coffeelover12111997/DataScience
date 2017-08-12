@@ -89,11 +89,19 @@ if __name__=='__main__':
     '''splitting into train and test'''
     train_X,test_X,train_y,test_y=train_test_split(trainX,train['SalePrice'],test_size=0.33,random_state=42)
 
+    #hyperparameter tuning not done yet
+    
+    '''RandomForest'''
     model1=ensemble.RandomForestRegressor()
     model1.fit(train_X,train_y)
     print(model1.score(test_X,test_y))
 
-
+   '''Svm'''
+    model2=svm.SVR(C=2.5)
+    model2.fit(train_X,train_y)
+    print(model2.score(test_X,test_y))
+    
+    
 
 
 
@@ -121,9 +129,7 @@ if __name__=='__main__':
     model1=linear_model.LinearRegression()
     model1.fit(train_X,train_y)
     print(metrics.r2_score(test_y,model1.predict(test_X)))
-    model2=svm.SVR(C=2.5)
-    model2.fit(train_X,train_y)
-    print(metrics.r2_score(test_y,model2.predict(test_X)))'''
+    '''
 
     prediction=model1.predict(testX)
     '''submission file'''
