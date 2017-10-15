@@ -5,7 +5,7 @@ Created on Sun Oct  8 14:34:42 2017
 @author: preetish
 """
 
-#quantify
+#Goldman Sachs quantify
 
 import numpy as np
 import pandas as pd
