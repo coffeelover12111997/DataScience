@@ -1,2 +1,2 @@
-# ML_learning
-My projects and notes on machine learning and deep learning
+# Datascience
+my Codes for the competitions I participated in datascience
